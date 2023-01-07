@@ -18,6 +18,7 @@ public class FileReader {
             long phone = Long.parseLong(line3 [1]);
             System.out.println(name +" "+ age+" "+e_mail+" "+phone);
             return new Profile(name,age,e_mail,phone);
+            reader.close();
         }
         catch (IOException e){
             e.printStackTrace();
