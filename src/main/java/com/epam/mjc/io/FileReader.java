@@ -11,10 +11,10 @@ public class FileReader {
             String[] line1 = (reader.readLine()).split(": ");
             int age = Integer.parseInt(line1[1]);
             String[] line2 = (reader.readLine()).split(": ");
-            String email = line2[1];
+            String eMail = line2[1];
             String[] line3 = (reader.readLine()).split(": ");
             long phone = Long.parseLong(line3[1]);
-            return new Profile(name, age, email, phone);
+            return new Profile(name, age, eMail, phone);
         } catch (IOException e) {
             e.printStackTrace();
         }
