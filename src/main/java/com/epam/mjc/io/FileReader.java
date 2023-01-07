@@ -5,9 +5,7 @@ import java.io.*;
 
 public class FileReader {
     public Profile getDataFromFile(File file) {
-        BufferedReader reader = null;
-        try {
-            reader = new BufferedReader(new java.io.FileReader(file));
+        try (BufferedReader reader = new BufferedReader(new java.io.FileReader(file))){
             String[] line = (reader.readLine()).split(": ");
             String name = line[1];
             String[] line1 = (reader.readLine()).split(": ");
@@ -16,8 +14,6 @@ public class FileReader {
             String e_mail = line2[1];
             String[] line3 = (reader.readLine()).split(": ");
             long phone = Long.parseLong(line3[1]);
-            System.out.println(name + " " + age + " " + e_mail + " " + phone);
-            reader.close();
             return new Profile(name, age, e_mail, phone);
         } catch (IOException e) {
             e.printStackTrace();
